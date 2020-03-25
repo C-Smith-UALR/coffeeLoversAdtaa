@@ -26,12 +26,12 @@ class AdtaaUser(AbstractUser):
     )
     is_staff = models.BooleanField(
         'Admin user',
-        default=False,
+        #default=False,
         help_text='An admin user will have all capabilities of a scheduler user along with the ability to edit course and instructor information. This user must also be a scheduler user.'
     )
     is_superuser = models.BooleanField(
         "Root user",
-        default=False,
+        #default=False,
         help_text='A root user will have all capabilities of an admin user along with the abilitiy to approve/deny registration requests and invite new root users. This user must also be a scheduler and admin user.'
     )
 
