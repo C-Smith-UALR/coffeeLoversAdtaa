@@ -19,9 +19,9 @@ class AdtaaUser(AbstractUser):
         blank=True,
     )
 
-    # is_active = models.BooleanField(
-    #     default=False,
-    # )
+    is_active = models.BooleanField("scheduler user", help_text='A scheduler user will be able to log in to this application and generate/export schedules using predefined course and instructor information.', default=False)
+    is_staff = models.BooleanField("admin user", help_text='An admin user will have all capabilities of a scheduler user along with the ability to edit course and instructor information. <font color="red"><b>This user must also be a scheduler user.</b></font>', default=False)
+    is_superuser = models.BooleanField("root user", help_text='A root user will have all capabilities of an admin user along with the abilitiy to approve/deny registration requests and invite new root users. <font color="red"><b>This user must also be a scheduler and admin user.</b></font>', default=False)
 
     def returnUserRequested(self):
         for choice in self.ACCESS_CHOICES:
